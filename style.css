@@ -1,0 +1,77 @@
+body {
+    min-height: 100vh;
+    background: url("./icons/background.jpg");
+    text-align: center;
+    gap: 0px;
+    margin: 0px;
+}
+
+
+.header {
+    font-size: 75px;
+    font-weight: bolder;
+    color: lightgray;
+    margin: 150px 0;
+}
+
+img {
+    width: 125px;
+    height: auto;
+}
+
+.game {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    margin: 0 400px;
+}
+
+.player-container, .computer-container {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 20px;
+    gap: 30px;
+}
+
+.person {
+    width: 100px;
+    height: auto;
+}
+
+.selections {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+}
+
+.selection {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    gap: 10px;
+    box-shadow: 5px 5px black;
+    transition: all .07s;
+}
+
+
+.player-container .selection:hover {
+    transform: scale(1.1);
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    word-spacing: 5px;
+}
+
+.player-selected {
+    background-color: lightcoral;
+}
+
+.computer-selected {
+    background-color: lightgreen;
+}
