@@ -7,7 +7,7 @@ let rounds_played = 0;
 let player_selection = "";
 let computer_selection = "";
 
-const selection_highlight_duration = 1000;
+const selection_highlight_duration = 800;
 
 
 function play(e) {
@@ -20,8 +20,7 @@ function play(e) {
     computer_selection = document.querySelector(`.computer-container .${choices[Math.floor(Math.random() * choices.length)]}`).parentNode;
 
     
-    isPlayerScored(player_selection, computer_selection) ? player_wins++ : computer_wins++;
-    console.log(isPlayerScored(player_selection, computer_selection));
+    evalRound(player_selection, computer_selection);
     console.log(player_selection);
     console.log(computer_selection);
     console.log(player_wins);
@@ -32,9 +31,9 @@ function play(e) {
 }
 
 function highlightSelections(){
-    player_selection.classList.add('player-selected');
+    player_selection.id = 'player-selected';
     computer_selection.classList.add('computer-selected');
-    setTimeout(() => player_selection.classList.remove('player-selected'), selection_highlight_duration);
+    setTimeout(() => player_selection.removeAttribute('id'), selection_highlight_duration);
     setTimeout(() => computer_selection.classList.remove('computer-selected'), selection_highlight_duration);
 }
 
@@ -43,27 +42,27 @@ function resetSelections() {
     computer_selection = "";
 }
 
-function isPlayerScored(player_selection, computer_selection)
+function evalRound(player_selection, computer_selection)
 {
     player_selection = player_selection.lastElementChild.className;
     computer_selection = computer_selection.lastElementChild.className;
 
     if (player_selection === "rock")
     {
-        if (computer_selection === "scissors") return true;
-        else return false;
+        if (computer_selection === "scissors") player_wins++;
+        else if (computer_selection === "paper") computer_wins++;
     }
     
-    if (player_selection === "paper")
+    else if (player_selection === "paper")
     {
-        if (computer_selection === "rock") return true;
-        else return false;
+        if (computer_selection === "rock") player_wins++;
+        else if (computer_selection === "scissors") computer_wins++;
     }
     
-    if (player_selection === "scissors")
+    else if (player_selection === "scissors")
     {
-        if (computer_selection === "rock") return true;
-        else return false;
+        if (computer_selection === "rock") player_wins++;
+        else if (computer_selection === "paper") computer_wins++;
     }
 
 }

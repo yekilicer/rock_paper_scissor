@@ -68,10 +68,12 @@ img {
     word-spacing: 5px;
 }
 
-.player-selected {
+#player-selected {
     background-color: lightcoral;
+    transform: scale(0.9);
 }
 
 .computer-selected {
     background-color: lightgreen;
+    transform: scale(0.9);
 }
