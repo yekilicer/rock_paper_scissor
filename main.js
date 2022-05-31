@@ -7,7 +7,7 @@ let rounds_played = 0;
 let player_selection = "";
 let computer_selection = "";
 
-const selection_highlight_duration = 600;
+const selection_highlight_duration = 300;
 
 
 function play(e) {
@@ -57,9 +57,11 @@ function evalRound(player_selection, computer_selection)
     
     else if (player_selection === "scissors")
     {
-        if (computer_selection === "rock") player_wins++;
-        else if (computer_selection === "paper") computer_wins++;
+        if (computer_selection === "paper") player_wins++;
+        else if (computer_selection === "rock") computer_wins++;
     }
+
+    if (player_wins === 5 || computer_wins === 5) endGame();
 
 }
 
@@ -69,6 +71,15 @@ function updateScores() {
     score_board.textContent = `${player_wins} : ${computer_wins}`;
 }
 
-const player_selections = document.querySelectorAll('.player-container .selection');
+function endGame() {
+    const endGameContainer = document.querySelector('.endgame-container');
+    const endGameOverlay = document.querySelector('.endgame-overlay');
+    endgameMsg = document.createTextNode(player_wins > computer_wins ? "YOU WON" : "YOU LOST");
+    endGameContainer.firstElementChild.appendChild(endgameMsg);
+    endGameContainer.classList.add('active');
+    endGameOverlay.classList.add('active');
+}
 
+
+const player_selections = document.querySelectorAll('.player-container .selection');
 player_selections.forEach(selection => { selection.addEventListener('click', play)});
