@@ -7,7 +7,7 @@ let rounds_played = 0;
 let player_selection = "";
 let computer_selection = "";
 
-const selection_highlight_duration = 800;
+const selection_highlight_duration = 600;
 
 
 function play(e) {
@@ -68,10 +68,9 @@ function evalRound(player_selection, computer_selection)
 }
 
 function updateScores() {
-    const player_score = document.querySelector(".player-score");
-    player_score.textContent = `SCORE: ${player_wins}`;
-    const computer_score = document.querySelector(".computer-score");
-    computer_score.textContent =`SCORE: ${computer_wins}`;
+    const score_board = document.querySelector('.scoreboard');
+    const round_result = document.querySelector('round-result');
+    score_board.textContent = `${player_wins} : ${computer_wins}`;
 }
 
 const player_selections = document.querySelectorAll('.player-container .selection');

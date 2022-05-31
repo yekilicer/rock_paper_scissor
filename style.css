@@ -1,17 +1,24 @@
 body {
-    min-height: 100vh;
     background: url("./icons/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
     text-align: center;
     gap: 0px;
     margin: 0px;
 }
 
+html {
+    height: 100%;
+    overflow: hidden;
+    font-family: 'Press Start 2P', cursive;
+    word-spacing: -50px;
+}
 
 .header {
-    font-size: 75px;
+    font-size: 50px;
     font-weight: bolder;
     color: lightgray;
-    margin: 150px 0;
+    margin: 200px 0 100px 0;
 }
 
 img {
@@ -21,9 +28,18 @@ img {
 
 .game {
     display: flex;
-    flex: 1;
-    justify-content: space-between;
-    margin: 0 400px;
+    flex: 1;    
+    gap: 50px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.scores {
+    color: lightgray;
+    margin-bottom: 75px;
+    font-size: 5rem;
 }
 
 .player-container, .computer-container {
@@ -51,11 +67,9 @@ img {
     display: flex;
     flex-direction: column;
     background-color: white;
-    gap: 10px;
     box-shadow: 5px 5px black;
     transition: all .07s;
 }
-
 
 .player-container .selection:hover {
     transform: scale(1.1);
