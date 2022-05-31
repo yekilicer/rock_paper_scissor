@@ -21,10 +21,6 @@ function play(e) {
 
     
     evalRound(player_selection, computer_selection);
-    console.log(player_selection);
-    console.log(computer_selection);
-    console.log(player_wins);
-    console.log(computer_wins);
     updateScores();
     highlightSelections();
     setTimeout(resetSelections, selection_highlight_duration);
